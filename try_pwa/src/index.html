@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="/static/manifest.json">
+    <title>PWA Page</title>
+</head>
+<body>
+    <div id="app">
+        <p>MDN manifest.json</p>
+        <p>可以在浏览器的application面板中查看manifest相关信息, 比如icon大小， serviceWorker等问题</p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">https://developer.mozilla.org/en-US/docs/Web/Manifest</a>
+    </div>
+    <script>
+        // 需要添加serviceWorker, 才可以满足PWA等installability
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('sw.js')
+            .then((registration) => {
+                console.log(registration)
+            })
+        }
+    </script>
+</body>
+</html>

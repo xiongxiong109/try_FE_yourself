@@ -1,0 +1,14 @@
+{
+  "name": "try_fe_yourself",
+  "version": "1.0.0",
+  "description": "try fe frameworks and principles yourself",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "fe"
+  ],
+  "author": "jqxiong",
+  "license": "ISC"
+}
