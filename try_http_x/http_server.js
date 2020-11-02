@@ -5,7 +5,8 @@ const server = http.createServer(this);
 
 // request事件是最原始的事件, 实现最基础的http server
 server.on('request', (req, res) => {
-    res.end(`hello http server, method: ${req.method}`);
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    res.end(`hello http <img src="https://localhost:8080"/> server, method: ${req.method}`);
 })
 
 // 处理error handle
