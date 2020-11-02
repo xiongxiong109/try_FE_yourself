@@ -1,6 +1,7 @@
 {
     "scripts": {
         "http": "node ./http_server",
-        "http2": "node ./http2_server"
+        "http2": "node ./http2_server",
+        "https": "node ./https_server"
     }
 }
