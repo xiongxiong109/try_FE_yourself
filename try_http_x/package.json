@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "http": "node ./http_server"
+    }
+}
