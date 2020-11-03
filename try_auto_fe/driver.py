@@ -10,7 +10,7 @@ import time
 # 一切都是按照w3c的webdriver标准来实现的
 # https://www.w3.org/TR/webdriver1/
 
-# chrome 浏览器配置, 保持detach状态，浏览器不会自动关闭
+# chrome 浏览器配置, 保持detach状态，浏览器不会自动关闭(可是没有效果)
 option = Options()
 option.add_experimental_option("detach", True)
 option.add_experimental_option('useAutomationExtension', False)
@@ -28,7 +28,7 @@ try:
         time.sleep(3)
         li_selector = driver.find_element_by_css_selector('.month__item.normal:nth-of-type(5)')
         li_selector.click()
-        time.sleep(5)
+        time.sleep(50)
 
 except Exception as error:
     print(error)
