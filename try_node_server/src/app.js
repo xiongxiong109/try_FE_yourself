@@ -18,9 +18,11 @@ Koa.prototype.listen = function() {
 
 /**
  * app.use(ctx => ctx.body = 'hello world')
+ * koa 如何实现 ctx.body 的全局管道式共享？ generator函数?
+ * 如何判断一个函数是generator or asyncfunc ?
  */
 Koa.prototype.use = function(fn) {
-    
+
 }
 
 Koa.prototype.handleRequest = function(req, res) {
