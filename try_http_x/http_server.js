@@ -6,6 +6,9 @@ const server = http.createServer(this);
 // request事件是最原始的事件, 实现最基础的http server
 server.on('request', (req, res) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    const cookies = req.headers['cookie']
+    // http的请求，无法拿到https的secure cookie
+    console.log(cookies)
     res.end(`hello http <img src="https://localhost:8080"/> server, method: ${req.method}`);
 })
 
@@ -14,6 +17,6 @@ server.on('clientError', (err, socket) => {
     socket.end(err)
 })
 
-server.listen(8888, () => {
-    console.log('server is running on port 8888')
+server.listen(8080, () => {
+    console.log('server is running on port 8080')
 })

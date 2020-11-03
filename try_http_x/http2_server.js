@@ -30,6 +30,13 @@ const server = http2.createSecureServer({
 
 server.on('request', (req, res) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    // 尝试设置cookie
+    const date = new Date();
+    date.setMonth(date.getMonth() + 12)
+    res.setHeader('Set-Cookie', [
+        `ticket=abababababab; httpOnly; domain=localhost; expires=${date}; secure;`,
+        'auth_ticket=helloworld; path=/'
+    ])
     res.end('hello http2')
 })
 
