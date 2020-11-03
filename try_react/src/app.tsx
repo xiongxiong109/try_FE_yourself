@@ -1,5 +1,6 @@
 import React from './index.js'
 import { render } from './dom.js'
+import Greetting from './components/Greeting.js'
 
 interface IProps {
     title: string;
@@ -7,8 +8,10 @@ interface IProps {
 
 const App = (props: IProps) => {
     return (
-        <div>
-            <p>hello {props.title}</p>
+        <div className="app-container" style={{
+            backgroundColor: 'red'
+        }}>
+            <Greetting {...props}/>
         </div>
     )
 }
