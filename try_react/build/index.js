@@ -25,6 +25,14 @@ function createElement(tag, attrs) {
     for (var _i = 2; _i < arguments.length; _i++) {
         children[_i - 2] = arguments[_i];
     }
+    // fix jsx
+    if (children instanceof Array && children.length) {
+        children.forEach(function (item, idx) {
+            if (typeof item == 'number') {
+                children[idx] = '' + item;
+            }
+        });
+    }
     return {
         $$typeof: REACT_ELEMENT_TYPE,
         tag: tag,

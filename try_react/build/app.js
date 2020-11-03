@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React from './index.js';
-import { render } from './dom.js';
+import ReactDOM from './dom.js';
 import Greetting from './components/Greeting.js';
 var App = function (props) {
     return (React.createElement("div", { className: "app-container", style: {
@@ -19,7 +19,7 @@ var App = function (props) {
         React.createElement(Greetting, __assign({}, props))));
 };
 // console.log(App)
-render(React.createElement(App, { title: 'world' }), document.body.querySelector('#app'));
+ReactDOM.render(React.createElement(App, { title: 'world' }), document.body.querySelector('#app'));
 // render((
 //     <div><p>asas</p></div>
 // ), document.body.querySelector('#app'))

@@ -25,6 +25,14 @@ const React = {
  * @param children 
  */
 function createElement(tag: string, attrs: any, ...children: any) {
+    // fix jsx
+    if (children instanceof Array && children.length) {
+        children.forEach((item, idx) => {
+            if (typeof item == 'number') {
+                children[idx] = '' + item
+            }
+        })
+    }
     return {
         $$typeof: REACT_ELEMENT_TYPE,
         tag,

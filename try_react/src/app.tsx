@@ -1,5 +1,5 @@
 import React from './index.js'
-import { render } from './dom.js'
+import ReactDOM from './dom.js'
 import Greetting from './components/Greeting.js'
 
 interface IProps {
@@ -7,10 +7,14 @@ interface IProps {
 }
 
 const App = (props: IProps) => {
+
     return (
-        <div className="app-container" style={{
-            backgroundColor: 'red'
-        }}>
+        <div
+            className="app-container"
+            style={{
+                backgroundColor: 'red'
+            }}
+        >
             <Greetting {...props}/>
         </div>
     )
@@ -18,7 +22,7 @@ const App = (props: IProps) => {
 
 // console.log(App)
 
-render(<App title={'world'}/>, document.body.querySelector('#app'))
+ReactDOM.render(<App title={'world'}/>, document.body.querySelector('#app'))
 
 // render((
 //     <div><p>asas</p></div>
