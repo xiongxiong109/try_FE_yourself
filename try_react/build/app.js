@@ -6,7 +6,7 @@ var App = function (props) {
             "hello ",
             props.title)));
 };
-console.log(App);
+// console.log(App)
 render(React.createElement(App, { title: 'world' }), document.body.querySelector('#app'));
 // render((
 //     <div><p>asas</p></div>

@@ -13,7 +13,7 @@ const App = (props: IProps) => {
     )
 }
 
-console.log(App)
+// console.log(App)
 
 render(<App title={'world'}/>, document.body.querySelector('#app'))
 

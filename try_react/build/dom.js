@@ -1,3 +1,7 @@
+/**
+ * render(<App />, document.querySelector('#app'))
+ */
+// import { REACT_ELEMENT_TYPE } from './index'
 function render(vDOM, container) {
     var node;
     if (typeof vDOM === 'string') {
