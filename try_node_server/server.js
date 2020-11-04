@@ -15,6 +15,7 @@ app.use(async ctx => {
 
 // gegerator based middlewares
 app.use(ctx => {
+    console.log(ctx.req.headers)
     ctx.body = 'hello world';
 })
 

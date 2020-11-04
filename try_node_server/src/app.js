@@ -1,13 +1,16 @@
 // 就不用class, 一定要用最原始的js实现
 const http = require('http')
+const Emitter = require('events');
+const context = require('./context')
 
 function Koa(options) {
+    // 继承事件类，具有onerror, 可以处理error回调
     this.middlewares = [];
-    // coa 内部公用的上下文
-    this.context = {};
-    // this.initMiddlewares();
-    // this.initApp();
+    // koa 内部共用的上下文
+    this.context = Object.create(context);
 }
+
+Koa.prototype = new Emitter();
 
 /**
  * app.listen(4000)
@@ -28,9 +31,17 @@ Koa.prototype.use = function (fn) {
     this.middlewares.push(fn);
 }
 
+Koa.prototype.createContext = function(req, res) {
+    const context = Object.create(this.context);
+    context.req = req;
+    context.res = res;
+    context.app = this;
+    return context;
+}
+
 Koa.prototype.handleRequest = function (req, res) {
 
-    const ctx = this.context
+    const ctx = this.createContext(req, res);
     const middlewares = this.middlewares
 
     let midStep;
