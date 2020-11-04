@@ -1,7 +1,8 @@
 // 就不用class, 一定要用最原始的js实现
 const http = require('http')
 const Emitter = require('events');
-const context = require('./context')
+const context = require('./context');
+const respond = require('./respond')
 
 function Koa(options) {
     // 继承事件类，具有onerror, 可以处理error回调
@@ -71,7 +72,7 @@ Koa.prototype.handleRequest = function (req, res) {
             }
         } else {
             // 最终处理
-            res.end(ctx.body)
+            respond(ctx)
         }
 
     }
