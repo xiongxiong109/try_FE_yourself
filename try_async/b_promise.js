@@ -1,0 +1,1 @@
+// 手动实现一个Promise polyfill(其实可以参考babel polyfill or v8 core)
