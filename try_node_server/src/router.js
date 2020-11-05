@@ -56,7 +56,7 @@ class Router {
     notFound(ctx) {
         ctx.res.statusCode = 404;
         ctx.body = 'not found';
-        console.log(ctx)
+        // console.log(ctx)
     }
 }
 
