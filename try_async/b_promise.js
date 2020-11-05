@@ -5,6 +5,12 @@
 /**
  * Promise的三种状态
  * pending, fulfilled, rejected
+ * 基础实现：
+ * 1. new Promise的时候，将函数参数与内部的resolve, reject函数绑定
+ * 2. then与catch的时候，将对应的resolve, reject函数进行赋值
+ * 3. resolve 与 reject的时候，修改对应的promise状态，并只在pending的时候才执行
+ * 4. 为了实现多个then的链式调用，需要将每次resolve的值向下一个resolve传递
+ * 5. then方法return 一个新的promise, 这个promise会拥有全新的state: pending，就可以继续向下执行
  */
 
 const PENDING = 'Pending';
