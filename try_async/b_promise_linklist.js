@@ -108,6 +108,26 @@ class BPromise {
             }
         })
     }
+    /**
+     * Promise.race的实现, race中任意一个promise完成或者reject, 整个流程即结束
+     * 赛跑的意思, 谁先完成就是谁
+     */
+    static race(promises) {
+        return new Promise((resolve, reject) => {
+            // 这里有个疑点， for循环起步的顺序，不会影响执行的先后结果吗？ 先进入事件队列的Promise
+            // 是否会先执行？
+            // v8源码使用的是 for of, 是否应该用map替代list?
+            for (let i = 0; i < promises.length; i++) {
+                promises[i]
+                .then(rst => {
+                    resolve(rst)
+                })
+                .catch(err => {
+                    reject(err)
+                })
+            }
+        })
+    }
 }
 
 // const bp = new BPromise((resolve, reject) => {
@@ -141,7 +161,7 @@ const pr1 = new BPromise((resolve, reject) => {
     setTimeout(() => {
         resolve({data: 'foo'})
         // reject('error pr1')
-    }, 200)
+    }, 1e3)
 })
 
 const pr2 = new BPromise((resolve, reject) => {
@@ -150,13 +170,31 @@ const pr2 = new BPromise((resolve, reject) => {
     }, 500)
 })
 
+// BPromise
+// .all([
+//     pr1,
+//     new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             // reject('error')
+//             resolve('ok')
+//         }, 300)
+//     }),
+//     pr2
+// ])
+// .then(rst => {
+//     console.log(rst)
+// })
+// .catch(err => {
+//     console.log(err)
+// })
+
 BPromise
-.all([
+.race([
     pr1,
     new Promise((resolve, reject) => {
         setTimeout(() => {
-            // reject('error')
-            resolve('ok')
+            reject('error')
+            // resolve('ok')
         }, 300)
     }),
     pr2
