@@ -80,6 +80,7 @@ class BPromise {
      * 成功时，返回一个数组，数组分别是每一个promise的结果
      * 失败时，返回最先reject的值
      * Promise.all([pr1, pr2, pr3]).then().catch()
+     * Promise.all 里返回的值，是按照列举的异步方法的顺序来的
      */
     static all(promises) {
         let rst = new Array(promises.length);
