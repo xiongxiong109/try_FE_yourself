@@ -1,0 +1,13 @@
+{
+    "name": "try xss and csrf",
+    "description": "尝试进行注入与跨站",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "js": ["./inject.js"],
+            "matches": ["<all_urls>"],
+            "run_at": "document_end"
+        }
+    ]
+}
