@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script defer src="collectClick.js"></script>
+    <script src="catch.js"></script>
+    <button onclick="throwGlobalError()">抛出全局错误</button>
+    <button onclick="throwPromiseError()">抛出全局Promise错误</button>
+    <button onclick="throwAsyncError()">抛出async await 错误</button>
+    <div id="#app">
+        <p>foo</p>
+        <p id="j_bar">bar</p>
+    </div>
+</body>
+</html>
