@@ -2,6 +2,7 @@ const Koa = require('./src/app')
 const Router = require('./src/router')
 const app = new Koa();
 const router = new Router();
+const view = require('./src/template')
 
 function mockPromise() {
     return new Promise(resolve => {
@@ -20,8 +21,15 @@ app.use(async ctx => {
 //     ctx.body = 'hello world';
 // })
 
-router.get('/webapp/index', (ctx) => {
-    ctx.body = ctx.title;
+// template
+app.use(view(__dirname, 'views'))
+
+router.get('/webapp/index', ctx => {
+    // console.log(ctx.render)
+    // ctx.body = ctx.title;
+    ctx.render('index', {
+        info: 'abaaaba'
+    })
 })
 
 router.get('/webapp/zhuanche', (ctx) => {
