@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "temp": "node ./src/template.js"
+    },
+    "devDependencies": {
+        "recast": "^0.20.4"
+    }
+}

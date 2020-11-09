@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{title}}</title>
 </head>
 <body>
     <p>Hello {{info}}</p>
+    <div class="{{className}}">
+        <!-- 实现循环语句 -->
+        {{ each item in detail }}
+        <span>{{item}}</span>
+        {{ /each }}
+    </div>
+    <span>{{info}}</span>
 </body>
 </html>

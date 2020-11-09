@@ -28,7 +28,14 @@ router.get('/webapp/index', ctx => {
     // console.log(ctx.render)
     // ctx.body = ctx.title;
     ctx.render('index', {
-        info: 'abaaaba'
+        info: 'abaaaba',
+        className: 'foo',
+        title: 'bear',
+        detail: [
+            'foo',
+            'bar',
+            'cool'
+        ]
     })
 })
 
