@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/css/limit_async.css">
+    <title>多个异步任务并发限制</title>
+</head>
+<body>
+    <div id="app">
+        <p>有多个异步任务，做并发限制, 最大并发量范围内，做任务调度, 所有异步任务执行完后，执行统一回调</p>
+        <p>优化: 每次最多只能有n个异步任务执行，每个异步任务执行完成都会立即回调</p>
+    </div>
+    <div class="async-all-container">
+        <br>
+        <div id="j_progress_bar">
+            <div class="pro-outter">
+                <div class="pro-inner"></div>
+            </div>
+        </div>
+        <br>
+        <p id="j_state_info"></p>
+        <br>
+        <button id="j_async_all">开始异步并发限制</button>
+    </div>
+    <script src="./static/js/limit_async.js"></script>
+</body>
+</html>

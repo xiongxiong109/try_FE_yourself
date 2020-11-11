@@ -1,0 +1,15 @@
+.pro-outter {
+    position: relative;
+    width: 300px;
+    height: 3px;
+    background-color: #ccc;
+}
+.pro-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: green;
+    transition: .3s ease;
+}
