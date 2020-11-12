@@ -13,12 +13,23 @@ function createServer(port = 8080) {
         // 解析请求的
         const urlInfo = url.parse(req.url);
         let urlPath = urlInfo.path;
+        // 媒体资源相关信息
+        let mediaInfo = {};
 
         // 尝试获取文件
         // 文件带后缀名
         if (/\.css$/.test(urlPath)) {
             res.setHeader('Content-Type', 'text/css; charset=utf-8');
         }
+
+        if (/image/.test(req.headers['accept'])) {
+            mediaInfo.isImg = true;
+            const imgExt = /\.(\w+)$/.exec(urlPath);
+            if (imgExt) {
+                res.setHeader('Content-Type', `image/${imgExt[1]};charset=utf-8`)   
+            }
+        }
+        
         if (!/\.\w+$/.test(urlPath)) {
             urlPath = 
                 // 以 / 结尾, 表示默认Index
@@ -36,7 +47,12 @@ function createServer(port = 8080) {
             res.statusCode = 404;
             res.end(`${filePath} not found`);
         } else {
-            const fileInfo = fs.readFileSync(filePath, { encoding: 'utf8' })
+            const fileInfo = 
+                mediaInfo.isImg
+                // 图片要用二进制流发送
+                ? Buffer.from(fs.readFileSync(filePath))
+                : fs.readFileSync(filePath, { encoding: 'utf8' })
+            // console.log(fileInfo)
             res.end(fileInfo)
         }
     })
