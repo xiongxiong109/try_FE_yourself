@@ -12,7 +12,7 @@ function createServer(port = 8080) {
     server.on('request', (req, res) => {
         // 解析请求的
         const urlInfo = url.parse(req.url);
-        let urlPath = urlInfo.path;
+        let urlPath = urlInfo.pathname; // urlInfo.path 会携带query参数
         // 媒体资源相关信息
         let mediaInfo = {};
 
