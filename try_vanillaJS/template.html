@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>实现模板字符串</p>
+    <p>String.prototype.replace的第二个参数，其实还可以接受一个函数，返回对应的值</p>
+    <p>扩展，实现 for each替换?</p>
+    <script>
+        /*
+        hello, ${name}, I am ${state}, 除了不是$1
+        {{ each item in list }}
+        {{item.nm}}
+        {{/each}}
+        */
+        function render(str, data) {
+            const tempReg = /\$\{(\w+)\}/g;
+            str = str.replace(tempReg, (origin, key) => data[key])
+            return str
+        }
+        const str = render('hello, ${name}, I am ${state}', {
+            name: 'xiong',
+            state: 'asas',
+            list: [
+                {
+                    nm: 'hello'
+                }
+            ]
+        })
+        console.log(str)
+    </script>
+</body>
+</html>
