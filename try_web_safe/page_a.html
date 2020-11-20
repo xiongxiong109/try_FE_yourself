@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 通过meta标签的方式, 添加CSP, 来防止xss攻击，另一种方式则是通过server 设置Header -->
+    <!-- chrome 插件也会有用到这个属性, 否则无法做一些常规操作 -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'"> -->
+    <script src="https://lib.baomitu.com/jquery/3.5.1/jquery.js"></script>
     <title>Document</title>
 </head>
 <body>

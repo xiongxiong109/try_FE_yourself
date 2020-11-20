@@ -13,6 +13,7 @@ app_1.use(ctx => {
     const date = new Date();
     date.setDate(date.getDate() + 365)
     ctx.res.setHeader('set-cookie', 'b_ticket=bear_xiong; path=/page; httpOnly; expires=' + date)
+    ctx.res.setHeader('Content-Security-Policy', 'script-src "self"')
     // ctx.res.setHeader('set-cookie', 'js_ticket=bear; path=/page; expires=' + date)
     ctx.body = fs.readFileSync(path.resolve(__dirname, 'page_a.html'))
     console.log(ctx.req.headers.cookie)
