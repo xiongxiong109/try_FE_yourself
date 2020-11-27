@@ -1,0 +1,26 @@
+.sticky-wrapper {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+}
+.sticky-panel {
+    background-color: #eee;
+}
+.sticky-title {
+    background-color: #ccc;
+}
+.sticky-box {
+    overflow: hidden;
+    position: relative;
+}
+/* 假设fixed */
+.sticky-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+.sticky-panel li {
+    height: 40px;
+}
