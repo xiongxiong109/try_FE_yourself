@@ -22,6 +22,10 @@ function createServer(port = 8080) {
             res.setHeader('Content-Type', 'text/css; charset=utf-8');
         }
 
+        if (/\.js/.test(urlPath)) {
+            res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
+        }
+
         if (/image/.test(req.headers['accept'])) {
             mediaInfo.isImg = true;
             const imgExt = /\.(\w+)$/.exec(urlPath);
