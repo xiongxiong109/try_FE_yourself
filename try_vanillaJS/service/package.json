@@ -1,6 +1,6 @@
 {
   "name": "@jqxiong/static-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "static node server for development",
   "main": "index.js",
   "scripts": {
