@@ -4,3 +4,5 @@ venv
 chromedriver
 .DS_Store
 *.log
+
+__temp
